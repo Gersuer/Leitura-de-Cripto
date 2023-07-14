@@ -23,9 +23,10 @@ const Details = () => {
   const { cripto } = useParams();
   const [coinDetail, setCoinDetail] = useState<CoinDetailProps>();
   const [loading, setLoading] = useState(true);
-  const [erro, setErro] = useState(false)
+  
   useEffect(() => {
     async function fetchCoin() {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       const data: Response = await fetch(`https://sujeitoprogramador.com/api-cripto/coin/?key=68f8ec7838d7ec26&pref=BRL&symbol=${cripto}`);
       const coin: CoinDetailProps = await data.json();
       const price = Intl.NumberFormat("BRL", {
